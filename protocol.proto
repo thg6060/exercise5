@@ -1,0 +1,67 @@
+syntax = "proto3";
+
+package main;
+option go_package = "protoc;protoc";
+
+message UserPartner {
+	  string id = 11;
+	  string userId = 1;
+	  string partnerId = 3;
+	  string aliasuserId = 5;
+	  map<string,int64> apps = 6;
+	  string phone = 7;
+	  int64 created = 10; 
+	  int64 updatedAt = 12;
+  }
+  
+message UserPartnerRequest {
+	
+}
+
+  // Get all list
+message UserPartnerListRequest {
+}
+
+message UserPartnerListReponse {
+	repeated UserPartner listUser = 1;
+}
+//Get user by id
+message UserPartnerByIdRequest {
+	string id = 11;
+	string userId = 1;
+	string phone = 7;
+	int32 limit = 2;
+}
+
+message UserPartnerByIdReponse {
+   UserPartner usrPartner = 1;
+}
+//Delete user by id
+message DeleteUserPartneRequest {
+	string id = 11;
+}
+
+message DeleteUserPartnerReponse {
+   string status = 1;
+}
+//Create new user
+message CreateUserPartnerRequest {
+	UserPartner usrPartner = 1;
+}
+
+message CreateUserPartnerReponse {
+    string status = 1;
+}
+
+
+
+
+service UserPartnerService {
+	
+	rpc GetUserPartnerById (UserPartnerByIdRequest) returns (UserPartnerByIdReponse) {}
+	rpc GetUserPartnerList (UserPartnerListRequest) returns (UserPartnerListReponse) {}
+	rpc DeleteUserPartnerById (DeleteUserPartneRequest) returns (DeleteUserPartnerReponse) {}
+	rpc CreateUserPartner (CreateUserPartnerRequest) returns (CreateUserPartnerReponse) {}
+   
+  }
+  
