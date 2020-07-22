@@ -1,6 +1,4 @@
 package main
-/*
-package main
 
 import (
 	//"fmt"
@@ -13,7 +11,6 @@ import (
 	"net/http"
 
 	"github.com/thg6060/exercise5/database"
-	"github.com/thg6060/exercise5/grpc"
 	"github.com/thg6060/exercise5/protoc"
 )
 
@@ -43,12 +40,8 @@ func Bai3() {
 	log.Fatal(http.ListenAndServe(":3003", nil))
 
 }
-/*
+
 func main() {
 	//database.CreateTable()
 	//Bai3()
-	var api protoc.UserPartnerServiceServer
-	grpc.RunServer(api)
-
 }
-*/
